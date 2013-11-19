@@ -133,34 +133,35 @@ public final class mNotify implements iMNotify {
 		    curl_close($ch);
 		    $this->hasError = true;
 		    $this->errorMessage = "An error occurred: $error";
+		    return; /* Return Early */
 		} else {
 			if (substr($curl_http_code, 0, 2) != '20') {
 				curl_close($ch);
 				$this->hasError = true;
 				$this->errorMessage = "An error occurred: Invalid HTTP response returned: $curl_http_code";
+				return; /* Return Early */
 			}
 		}
-		
+
+		$this->errorCode = $result;
+
 		switch ($result) {
 		case "1000":
+			/* All is well $this->hasError == false */
 			break;
 		case "1002":
-			$this->errorCode = $result;
 			$this->hasError = true;
 			$this->errorMessage = "SMS sending failed";
 			break;
 		case "1003":
-			$this->errorCode = $result;
 			$this->hasError = true;
 			$this->errorMessage = "Insufficient balance";
 			break;
 		case "1004":
-			$this->errorCode = $result;
 			$this->hasError = true;
 			$this->errorMessage = "Invalid API key";
 			break;
 		case "1005":
-			$this->errorCode = $result;
 			$this->hasError = true;
 			$this->errorMessage = "Invalid destination (the phone number you submitted is not in a valid format)";
 			break;
