@@ -98,7 +98,7 @@ public final class mNotify implements iMNotify {
 	/**
 	 * Function Name: send
 	 * Purpose:       Sends the text Message via mNotify and sets global
-	 * 		  variables $hasError if and error occurred and places
+	 * 		  variables $hasError if an error occurred and places
 	 *		  the error message in $errorMessage also the error code
 	 *		  is placed in $errorCode for reference sake.
 	 * Parameters:    NONE
@@ -119,10 +119,10 @@ public final class mNotify implements iMNotify {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		#curl_setopt($ch, CURLOPT_USERPWD, $username.':'.$password);
 		#curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_POST, true);
+		#curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_REFERER, "http://laudarch.host.sk");
 		curl_setopt($ch, CURLOPT_USERAGENT, "laudarchChrome/1.0");
-		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_HEADER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 		$result = curl_exec($ch);
