@@ -1,8 +1,8 @@
 ﻿<?php
 /* $Id: mNotify.php,v 1.0 2013/11/11 07:48:54 laudarch Exp $ */
 /**
- * Copyright (c) 2013 
- *               Archzilon Eshun-Davies <laudarch@host.sk>
+ * Copyright (c) 2013 - 2022
+ *               Archzilon Eshun-Davies <laudarch@qremiaevolution.org>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -33,7 +33,7 @@ public interface iMNotify {
   */
 public final class mNotify implements iMNotify {
 
-	protected $url = "http://bulk.mnotification.com/smsapi";
+	protected $url = "https://apps.mnotify.net/smsapi";
 	protected $sender;
 	protected $apiKey;
 	protected $message;
@@ -120,8 +120,8 @@ public final class mNotify implements iMNotify {
 		#curl_setopt($ch, CURLOPT_USERPWD, $username.':'.$password);
 		#curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		#curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_REFERER, "http://laudarch.host.sk");
-		curl_setopt($ch, CURLOPT_USERAGENT, "laudarchChrome/1.0");
+		curl_setopt($ch, CURLOPT_REFERER, "https://archzilon.eshun-davies.info");
+		curl_setopt($ch, CURLOPT_USERAGENT, "laudarchChrome/1.1");
 		curl_setopt($ch, CURLOPT_HEADER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
